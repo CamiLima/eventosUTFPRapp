@@ -3,14 +3,16 @@ import { SectionList, StyleSheet, Text, View } from 'react-native';
 import Logo from '../components/Logo'
 import Header from '../components/Header'
 import Background from '../components/Background'
-
+import BackButton from '../components/BackButton'
+import Button from '../components/Button'
 
 export default function DashboardScreen({ navigation }) {
      return ( <Background>
-          <View style={styles.container}>
+        <BackButton goBack={navigation.goBack} />
                 <Logo />
                 <Header>EVENTOS</Header>
 
+          
         <SectionList
           sections={[
             {title: 'Agronomia', data: ['Palestra manejo do solo']},
@@ -23,7 +25,19 @@ export default function DashboardScreen({ navigation }) {
           renderSectionHeader={({section}) => <Text style={styles.sectionHeader}>{section.title}</Text>}
           keyExtractor={(item, index) => index}
         />
-      </View>
+        <Button
+        mode="contained"
+        onPress={() => navigation.navigate('NewEventScreen')}
+      >
+         Novo Evento
+      </Button>
+      <Button
+        mode="outlined"
+        onPress={() => navigation.navigate('InfoEventsScreen')}
+      >
+        Info eventos
+      </Button>
+
      </Background>
      
     );

@@ -17,7 +17,6 @@ export default function RegisterScreen({ navigation }) {
   const [email, setEmail] = useState({ value: '', error: '' })
   const [password, setPassword] = useState({ value: '', error: '' })
   const [curso, setCurso] = useState({ value: '', error: '' })
-  const [ra, setRa] = useState({ value: '', error: '' })
 
   const onSignUpPressed = () => {
     const nameError = nameValidator(name.value)
@@ -50,12 +49,6 @@ export default function RegisterScreen({ navigation }) {
         errorText={name.error}
       />
       <TextInput
-        label="Ra"
-        returnKeyType="done"
-        value={ra.value}
-        onChangeText={(text) => setLocal({ value: text, error: '' })}
-        />
-       <TextInput
         label="Curso"
         returnKeyType="done"
         value={curso.value}

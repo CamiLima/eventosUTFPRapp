@@ -9,7 +9,8 @@ import {
   RegisterScreen,
   ResetPasswordScreen,
   NewEventScreen,
-  DashboardScreen
+  DashboardScreen,
+  InfoEventsScreen
 } from './src/screens'
 import "intl";
 import { Platform } from "react-native";
@@ -41,6 +42,7 @@ if (Platform.OS === "android") {
           <Stack.Screen name="RegisterScreen" component={RegisterScreen} />
           <Stack.Screen name="NewEventScreen" component={NewEventScreen} />
           <Stack.Screen name="DashboardScreen" component={DashboardScreen} />
+          <Stack.Screen name="InfoEventsScreen" component={InfoEventsScreen} />
 
           <Stack.Screen
             name="ResetPasswordScreen"

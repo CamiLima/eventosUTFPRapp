@@ -2,29 +2,30 @@ import React from 'react';
 import { SectionList, StyleSheet, Text, View } from 'react-native';
 import Logo from '../components/Logo'
 import Header from '../components/Header'
+import Background from '../components/Background'
+import BackButton from '../components/BackButton'
 
 
 
-export default function DashboardScreen({ navigation }) {
-    navigation.reset({
-        index: 0,
-        routes: [{ name: 'NewEvent' }],
-      })
+export default function InfoEventsScreen({ navigation }) {
     return (
-      <View style={styles.container}>
+      <Background>
+           <BackButton goBack={navigation.goBack} />
                 <Logo />
                 <Header>Informações do Evento</Header>
 
         <SectionList
           sections={[
-            {title: 'Agronomia', data: ['Nome:Palestra manejo do solo','Descrição: Palestra ofertada para os alunos de agronomia, o palestrante será o professor Doutor Paulo Britto, com certificado de horas','Publico: Alunos de Agronomia','Data inicial: 21/11/21', 'Data Final: 21/11/21','Hora inicial 19:00','Hora Final 21:30']},
+            {title: 'Agronomia', data: ['Nome: Palestra manejo do solo','Descrição: O palestrante será o professor Doutor Paulo Britto, com certificado de horas','Publico: Alunos de Agronomia','Data inicial: 21/11/21', 'Data Final: 21/11/21','Hora inicial: 19:00','Hora Final: 21:30']},
             
           ]}
           renderItem={({item}) => <Text style={styles.item}>{item}</Text>}
           renderSectionHeader={({section}) => <Text style={styles.sectionHeader}>{section.title}</Text>}
           keyExtractor={(item, index) => index}
         />
-      </View>
+         
+      
+       </Background>
     );
 }
 const styles = StyleSheet.create({
